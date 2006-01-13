@@ -1,0 +1,7 @@
+fp.and                  The logical AND of two fingerprints
+fp.from.bstring         Generates a fingerprint vector from a string
+                        representation of the binary fingerprint
+fp.not                  The logical NOT of a fingerprint
+fp.or                   The logical OR of two fingerprints
+fp.to.string            Generates a string representation of a binary
+                        fingerprint
