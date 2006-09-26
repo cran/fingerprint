@@ -44,4 +44,4 @@ fp3 <- fp.from.bstring("011111")
 fp.sim.matrix( list(fp1,fp2,fp3), size=6)
 }
 \keyword{logic}
-\author{Rajarshi Guha (\email{rajarshi@presidency.com})}
+\author{Rajarshi Guha \email{rguha@indiana.edu}}

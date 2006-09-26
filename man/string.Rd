@@ -32,4 +32,4 @@ fp <- fp.from.bstring("110011")
 print(fp.to.string(fp, 6))
 }
 \keyword{logic}
-\author{Rajarshi Guha (\email{rajarshi@presidency.com})}
+\author{Rajarshi Guha \email{rguha@indiana.edu}}

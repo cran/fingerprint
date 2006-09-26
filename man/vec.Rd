@@ -35,4 +35,4 @@ fp <- fp.from.bstring("110011")
 vec <- fp.to.vector(fp,6)
 }
 \keyword{logic}
-\author{Rajarshi Guha (\email{rajarshi@presidency.com})}
+\author{Rajarshi Guha \email{rguha@indiana.edu}}

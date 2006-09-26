@@ -43,6 +43,6 @@ fpNAnd(fp1,fp2,8)
 fpNOff(fp1,fp2,8)
 }
 \keyword{logic}
-\author{Rajarshi Guha (\email{rajarshi@presidency.com})}
+\author{Rajarshi Guha \email{rguha@indiana.edu}}
 
 

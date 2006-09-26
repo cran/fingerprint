@@ -64,4 +64,4 @@ Diverse Selection of Chemical Compounds Using Binary Strings,
 }
     
 \keyword{logic}
-\author{Rajarshi Guha (\email{rajarshi@presidency.com})}
+\author{Rajarshi Guha \email{rguha@indiana.edu}}

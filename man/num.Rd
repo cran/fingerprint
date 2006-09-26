@@ -21,6 +21,6 @@ fp <- fp.from.bstring("11001011")
 fp.num(fp)
 }
 \keyword{logic}
-\author{Rajarshi Guha (\email{rajarshi@presidency.com})}
+\author{Rajarshi Guha \email{rguha@indiana.edu}}
 
 

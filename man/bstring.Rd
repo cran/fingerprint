@@ -22,4 +22,4 @@ fp.from.bstring(fp)
 A vector of integers representing positions that contain a 1
 }
 \keyword{logic}
-\author{Rajarshi Guha (\email{rajarshi@presidency.com})}
+\author{Rajarshi Guha \email{rguha@indiana.edu}}

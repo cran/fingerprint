@@ -49,7 +49,7 @@ fp.to.string(or,size=8)
 fp.to.string(not,size=8)
 }
 \keyword{logic}
-\author{Rajarshi Guha (\email{rajarshi@presidency.com})}
+\author{Rajarshi Guha \email{rguha@indiana.edu}}
 
 
 

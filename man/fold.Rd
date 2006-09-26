@@ -37,4 +37,4 @@ fp <- fp.from.bstring("110011")
 fp.fold( fp, size=6)
 }
 \keyword{logic}
-\author{Rajarshi Guha (\email{rajarshi@presidency.com})}
+\author{Rajarshi Guha \email{rguha@indiana.edu}}
