@@ -121,10 +121,10 @@ fp.read.to.matrix <- function(f='fingerprint.txt', size=1024, lf=cdk.lf, header=
 }
     
 fp.distance <- function(fp1,fp2, size=1024, type='tanimoto', ...) {
-    c <- fpNAnd(fp1,fp2)
-    a <- fpNOr(fp1,fp2)
-    b <- fpNOr(fp2,fp1)
-    d <- fpNOff(fp1,fp2)
+    c <- fpNAnd(fp1,fp2, size=size)
+    a <- fpNOr(fp1,fp2, size=size)
+    b <- fpNOr(fp2,fp1, size=size)
+    d <- fpNOff(fp1,fp2, size=size)
 
     dist <- NULL
 
