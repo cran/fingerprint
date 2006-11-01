@@ -1,7 +1,7 @@
 \name{fp.to.matrix}
 \alias{fp.to.matrix}
 \title{
-  Converts a list structure of fingerpring vectors to a matrix
+  Converts a List of Fingerprints to a Matrix
 }
 \description{
     In general, fingerprint data is read from a file or obtained via
@@ -12,30 +12,29 @@
     in each fingerprint vector)
 }
 \usage{
-fp.to.matrix(fplist, size=1024)
+fp.to.matrix(fplist)
 }
 \arguments{
     \item{fplist}{
-        A list structure with each element being a fingerprint vector. This
-        structure will generally be obtained from \code{fp.read}.
-    }
-    \item{size}{
-        Length of the bit string represented by the fingerprint vector
+        A list structure with each element being an object of class
+	\code{fingerprint}. These will can be constructed by hand or
+	read from disk via \code{\link{fp.read}}
     }
 }
 \value{
-A matrix with dimensions equal to \code{(length(fplist), size)}
+A matrix with dimensions equal to \code{length(fplist), bit length)}
+where bit length is a property of the fingerprint objects in the list.
 }
 \seealso{
-    \code{\link{fp.distance}}, \code{\link{fp.read}}
+    \code{\link{distance}}, \code{\link{fp.read}}
 }
 \examples{
-# make a fingerprint vector
-fp1 <- fp.from.bstring("110011")
-fp2 <- fp.from.bstring("100111")
-fp3 <- fp.from.bstring("011111")
+# make fingerprint objects
+fp1 <- new("fingerprint", nbit=6, bits=c(1,2,5,6))
+fp2 <- new("fingerprint", nbit=6, bits=c(1,4,5,6))
+fp3 <- new("fingerprint", nbit=6, bits=c(2,3,4,5,6))
 
-fp.to.matrix( list(fp1,fp2,fp3), size=6)
+fp.to.matrix( list(fp1,fp2,fp3) )
 }
 \keyword{logic}
 \author{Rajarshi Guha \email{rguha@indiana.edu}}

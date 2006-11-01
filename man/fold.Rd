@@ -1,5 +1,5 @@
-\name{fp.fold}
-\alias{fp.fold}
+\name{fold}
+\alias{fold}
 \title{
   Fold a fingerprint
 }
@@ -13,28 +13,23 @@
     It should be noted that many fingerprint generating routines will perform this internally.
 }
 \usage{
-fp.fold(fp, size=1024)
+fold(fp)
 }
 \arguments{
     \item{fp}{
-        The fingerprint to fold. 
-    }
-    \item{size}{
-        Length of the bit string represented by the fingerprint vector. Note that the size of
-        should be an even number.    
+        The fingerprint to fold. Should be of class \code{fingerprint}.
     }
 }
 \value{
-The folded fingerprint vector. The size of this vector should be taken as half that of
-the original vector
+An object of class \code{fingerprint} representing the folded fingerprint.
 }
 \seealso{
-    \code{\link{fp.xor}}}
+    \code{\link{xor}}}
 }
 \examples{
 # make a fingerprint vector
-fp <- fp.from.bstring("110011")
-fp.fold( fp, size=6)
+fp <- new("fingerprint", nbit=64, bits=sample(1:64, 30))
+fold(fp)
 }
 \keyword{logic}
 \author{Rajarshi Guha \email{rguha@indiana.edu}}

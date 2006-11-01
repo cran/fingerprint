@@ -1,8 +1,7 @@
-\name{fp.to.vector}
-\alias{fp.to.vector}
+\name{euc.vector}
+\alias{euc.vector}
 \title{
-  Converts the fingerprint from a nD cube representation to an
-  nD sphere representation
+  Euclidean Representation of Binary Fingerprints
 }
 \description{
  Ordinarily, a binary fingerprint can be considered to represent a 
@@ -13,26 +12,22 @@
  The resultant fingerprint is then a nD coordinate.
 }
 \usage{
-fp.to.vector(fp, size=1024)
+euc.vector(fp)
 }
 \arguments{
     \item{fp}{
-        A fingerprint vector
-    }
-    \item{size}{
-        Length of the bit string represented by the fingerprint vector
+        An object of class \code{fingerprint}.
     }
 }
 \value{
-A numeric of length equal to size corresponding to a unit vector for a point
+A numeric of length equal to the bit length of the fingerprint. The
+result corresponds to a unit vector for a point
 on the nD hypersphere
 }
 \examples{
 # make a fingerprint vector
-fp <- fp.from.bstring("110011")
-
-# print out the string representation
-vec <- fp.to.vector(fp,6)
+fp <- new("fingerprint", nbit=8, bits=c(1,3,4,5,7))
+vec <- euc.vector(fp)
 }
 \keyword{logic}
 \author{Rajarshi Guha \email{rguha@indiana.edu}}
