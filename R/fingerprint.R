@@ -13,7 +13,7 @@ setClass("fingerprint",
                    folded=FALSE,
                    provider=""))
 
-setGeneric("show", function(object) standardGeneric("show"))
+#setGeneric("show", function(object) standardGeneric("show"))
 setMethod("show", "fingerprint",
           function(object) {
             cat("Fingerprint object\n")
