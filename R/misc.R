@@ -42,27 +42,46 @@ setMethod("distance", c("fingerprint", "fingerprint", "missing"),
             distance(fp1,fp2,"tanimoto")
           })
 setMethod("distance", c("fingerprint", "fingerprint", "character"),
-          function(fp1,fp2, method=c('tanimoto', 'euclidean', 'mt')) {
+          function(fp1,fp2, method=c('tanimoto', 'euclidean', 'mt',
+                              'simple', 'jaccard', 'dice',
+                              'russelrao', 'rodgerstanimoto','cosine',
+                              'achiai', 'carbo', 'baroniurbanibuser',
+                              'kulczynski2',
+                              
+                              'hamming', 'meanHamming', 'soergel',
+                              'patternDifference', 'variance', 'size', 'shape',
+
+                              'hamann', 'yule', 'pearson', 'dispersion',
+                              'mcconnaughey', 'stiles',
+
+                              'simpson', 'petke')) {
+            
             if ( length(fp1) != length(fp2))
               stop("Fingerprints must of the same bit length")
             
             method <- match.arg(method)
             size <- length(fp1)
-            
+            n <- size
+
+            ## in A & B
             tmp <- fp1 & fp2
             c <- length(tmp@bits)
 
+            ## in A not in B
             tmp <- (fp1 | fp2) & !fp2
             a <- length(tmp@bits)
 
+            ## in B not in A
             tmp <- (fp1 | fp2) & !fp1
             b <- length(tmp@bits)
 
+            ## not in A, not in B
             tmp <- !(fp1 | fp2)
             d <- length(tmp@bits)
 
             dist <- NULL
 
+            ## Simlarity
             if (method == 'tanimoto') {
               dist <- c / (a+b+c)
             } else if (method == 'euclidean') {
@@ -74,8 +93,60 @@ setMethod("distance", c("fingerprint", "fingerprint", "character"),
               t0 <- d/(size-c)
               phat <- ((size-d) + c)/(2*size)
               dist <- (2-phat)*t1/3 + (1+phat)*t0/3
+            } else if (method == 'simple') {
+              dist <- (c+d)/n
+            } else if (method == 'jaccard') {
+              dist <- c/(a+b+c)
+            } else if (method == 'russelrao') {
+              dist <- c/size
+            } else if (method == 'rodgerstanimoto') {
+              dist <- (c+d)/(2*a+2*b+c+d)
+            } else if (method == 'cosine' || method == 'achiai' || method == 'carbo') {
+              dist <- c/sqrt((a+c)*(b+c))
+            } else if (method == 'baroniurbanibuser') {
+              dist <- (sqrt(c*d)+c)/(sqrt(c*d)+a+b+c)
+            } else if (method == 'kulczynski2') {
+              dist <- .5*(c/(a+c)+c/(b+c))              
+            }
+            ## Dissimilarity
+            else if (method == 'hamming') {
+              dist <- a+b
+            } else if (method == 'meanHamming') {
+              dist <- (a+b)/(a+b+c+d)
+            }else if (method == 'soergel') {
+              dist <- (a+b)/(a+b+c)
+            } else if (method == 'patternDifference') {
+              dist <- (a*b)/(a+b+c+d)^2
+            } else if (method == 'variance') {
+              dist <- (a+b)/(4*n)
+            } else if (method == 'size') {
+              dist <-  (a-b)^2/n^2
+            } else if (method == 'shape') {
+              dist <- (a+b)/n-((a-b)/(n))^2
             }
 
+            ## Composite
+            else if (method == 'hamann') {
+              dist <- (c+d-a-b)/(a+b+c+d)
+            } else if (method == 'yule') {
+              dist <-  (c*d-a*b)/(c*d+a*b)
+            } else if (method == 'pearson') {
+              dist <- (c*d-a*b)/sqrt((a+c)*(b+c)*(a+d)*(b+d))
+            } else if (method == 'dispersion') {
+              dist <- (c*d-a*b)/n^2
+            } else if (method == 'mcconaughey') {
+              dist <- (c^2-a*b)/((a+c)*(b+c))
+            } else if (method == 'stiles') {
+              dist <- log10(n*(abs(c*d-a*b)-n/2)^2/((a+c)*(b+c)*(a+d)*(b+d)))
+            }
+
+            ## Asymmetric
+            else if (method == 'simpson') {
+              dist <- c/min((a+c),(b+c))
+            } else if (method == 'petke') {
+              dist <- c/max((a+c),(b+c))
+            }
+            
             dist
           })
 

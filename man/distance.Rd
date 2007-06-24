@@ -7,15 +7,48 @@ Calculates the Distance Between Two Fingerprints
     A number of distance metrics can be calculated for binary fingerprints.
     These metrics can be used to evaluate similarity/dissimilarity between
     fingerprints and hence are useful for clustering purposes. The function
-    currently allows the evaluation of 4 distance metrics
+    currently allows the evaluation of many distance metrics
     \itemize{
         \item Euclidean
+\item Hamming
+\item Mean Hamming
+\item Soergel
+\item Pattern Difference
+\item Variance
+\item Size
+\item Shape
+}
+
+The following metrics are similarity metrics and so the distance can
+be obtained by subtracting the value fom 1.0
+\itemize{
         \item Tanimoto
         \item Dice
         \item Modified Tanimoto
-    } The default metric is the Tanimoto coefficient.
-    In the case of the last 3, the value is actually a similarity value and hence
-    the distance metric is obtained by subtracting the obtained value from 1.0.    
+\item Simple
+\item Jaccard
+\item Russel-Rao
+\item Rodgers Tanimoto
+\item Cosine
+\item Achiai
+\item Carbo
+\item Baroniurbanibuser
+\item Kulczynski2
+    } 
+
+Finally the method also provides a set of composite and asymmetric
+distance metrics
+\itemize{
+\item Hamann
+\item Yule
+\item Pearson
+\item Dispersion
+\item McConnaughey
+\item Stiles
+\item Simpson
+\item Petke
+}
+The default metric is the Tanimoto coefficient.
 }
 \usage{
 distance(fp1, fp2, method)
@@ -28,9 +61,41 @@ distance(fp1, fp2, method)
       An object of class \code{fingerprint}
     }
     \item{method}{
-        The type of distance metric desired. Alternative values are
-        \code{euclidean} and \code{dice} and \code{mt}. Partial matching
-	is supported and the deault is \code{tanimoto}
+        The type of distance metric desired. Partial matching is
+	supported and the deault is \code{tanimoto}. Alternative values are
+\itemize{
+\item \code{euclidean} 
+\item \code{hamming}
+\item \code{meanHamming}
+\item \code{soergel}
+\item \code{patternDifference}
+\item \code{variance}
+\item \code{size}
+\item \code{shape}
+
+\item \code{jaccard}
+\item \code{dice}
+\item \code{mt}
+\item \code{simple}
+\item \code{russelrao}
+\item \code{rodgerstanimoto}
+\item \code{cosine}
+\item \code{achiai}
+\item \code{carbo}
+\item \code{baroniurbanibuser}
+\item \code{kulczynski2}
+
+\item \code{hamann}
+\item \code{yule}
+\item \code{pearson}
+\item \code{mcconnaughey}
+\item \code{stiles}
+
+\item \code{simpson}
+\item \code{petke}
+
+}
+
     }
 }
 \value{
@@ -50,10 +115,14 @@ fp3 <- !fp2
 
 distance(fp1,fp3) # should be 0
 }
+
 \references{Fligner, M.A.; Verducci, J.S.; Blower, P.E.;
 A Modification of the Jaccard-Tanimoto Similarity Index for
 Diverse Selection of Chemical Compounds Using Binary Strings,
 \emph{Technometrics}, 2002, \emph{44}(2), 110-119
+
+Monve, V.; Introduction to Similarity Searching in
+Chemistry, \emph{MATCH - Comm. Math. Comp. Chem.}, 2004, \emph{51}, 7-38
 }
     
 \keyword{logic}
