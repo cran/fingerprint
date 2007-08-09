@@ -29,7 +29,7 @@ fp.read <- function(f='fingerprint.txt', size=1024, lf=cdk.lf, header=FALSE) {
   for (line in lines) {
     fplist[[c]] <- new("fingerprint",
                        nbit=size,
-                       bits=lf(line),
+                       bits=as.numeric(lf(line)),
                        folded=FALSE,
                        provider=provider)
     c <- c+1
