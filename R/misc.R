@@ -22,7 +22,7 @@ setMethod("fold", "fingerprint",
                           nbit=subfplen,
                           bits=b2,
                           provider="R")
-            foldedfp <- xor(subfp1,subfp2)
+            foldedfp <- subfp1 | subfp2
             foldedfp@folded <- TRUE
             return(foldedfp)
           })

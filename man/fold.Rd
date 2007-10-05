@@ -24,7 +24,7 @@ fold(fp)
 An object of class \code{fingerprint} representing the folded fingerprint.
 }
 \seealso{
-    \code{\link{xor}}}
+    \code{\link{xor}}
 }
 \examples{
 # make a fingerprint vector
