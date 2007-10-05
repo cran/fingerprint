@@ -23,13 +23,13 @@ setMethod("|", c("fingerprint", "fingerprint"),
           })
 
 setMethod("!", c("fingerprint"),
-          function(e1) {
-            bs <- 1:(e1@nbit)
-            if (length(e1@bits) > 0) b <- bs[ -e1@bits ]
+          function(x) {
+            bs <- 1:(x@nbit)
+            if (length(x@bits) > 0) b <- bs[ -x@bits ]
             else b <- bs
             ret <- new("fingerprint",
                        bits=b,
-                       nbit=e1@nbit,
+                       nbit=x@nbit,
                        provider="R")
             return(ret)
           })
