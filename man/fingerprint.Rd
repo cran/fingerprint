@@ -34,6 +34,9 @@ Objects can be created by calls of the form \code{new("fingerprint", ...)}.
     \item{\code{provider}:}{Object of class \code{"character"} ~~
       Indicates the source of the fingerprint. Can be useful to keep
       track of what software generated the fingerprint.}
+    \item{\code{name}:}{Object of class \code{"character"} ~~
+      The name associated with the fingerprint. If not name is available
+    this gets set to an empty string}
   }
 }
 \section{Methods}{

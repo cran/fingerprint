@@ -2,20 +2,21 @@ cdk.lf <- function(line) {
   p <- regexpr("{([0-9,\\s]*)}",line,perl=T)
   s <- gsub(',','',substr(line, p+1, p+attr(p,"match.length")-2))
   s <- lapply( strsplit(s,' '), as.numeric )
-  s[[1]]
+  list(NA, s[[1]])
 }
 
 moe.lf <- function(line) {
   p <- regexpr("\"([0-9\\s]*)\"",line, perl=T)
   s <- substr(line, p+1, p+attr(p,"match.length")-2)
   s <- lapply( strsplit(s,' '), as.numeric )
-  s[[1]]
+  list(NA, s[[1]])
 }
 
 bci.lf <- function(line) {
   tokens <- strsplit(line, '\\s')[[1]]
+  name <- tokens[1]
   tokens <- tokens[-c(1, length(tokens), length(tokens)-1)]
-  as.numeric(tokens)
+  list(name, as.numeric(tokens))
 }
 
 fp.read <- function(f='fingerprint.txt', size=1024, lf=cdk.lf, header=FALSE) {
@@ -27,11 +28,16 @@ fp.read <- function(f='fingerprint.txt', size=1024, lf=cdk.lf, header=FALSE) {
   if (header) lines = lines[-1]
   c = 1
   for (line in lines) {
+    dat <- lf(line)
+    if (is.na(dat[[1]])) name <- ""
+    else name <- dat[[1]]
+    
     fplist[[c]] <- new("fingerprint",
                        nbit=size,
-                       bits=as.numeric(lf(line)),
+                       bits=as.numeric(dat[[2]]),
                        folded=FALSE,
-                       provider=provider)
+                       provider=provider,
+                       name=name)
     c <- c+1
   }
   close(fcon)
