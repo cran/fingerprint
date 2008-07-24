@@ -1,6 +1,6 @@
 Package: fingerprint
-Version: 2.8
-Date: 2007-10-05
+Version: 2.8.1
+Date: 2008-07-24
 Title: Functions to operate on binary fingerprint data
 Author: Rajarshi Guha <rguha@indiana.edu>
 Maintainer: Rajarshi Guha <rguha@indiana.edu>
@@ -17,4 +17,4 @@ Description: This package contains functions to manipulate binary fingerprints
 License: GPL
 Depends: methods
 LazyLoad: yes
-Packaged: Sat Jul 19 17:21:09 2008; rguha
+Packaged: Thu Jul 24 10:40:00 2008; rguha

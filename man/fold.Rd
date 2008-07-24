@@ -1,3 +1,4 @@
+
 \name{fold}
 \alias{fold}
 \title{
@@ -7,7 +8,7 @@
     In many situations a fingerprint is generated using a large length (such as 1024 bits or more).
     As a result of this, the fingerprints for a dataset can be very sparse. One approach to increasing 
     bit density of such fingerprints is to fold them. This is performed by dividing the original
-    fingerprint bitstring into two substrings of equal length and then perform an XOR on
+    fingerprint bitstring into two substrings of equal length and then perform an OR on
     the two substrings. 
 
     It should be noted that many fingerprint generating routines will perform this internally.
@@ -22,9 +23,6 @@ fold(fp)
 }
 \value{
 An object of class \code{fingerprint} representing the folded fingerprint.
-}
-\seealso{
-    \code{\link{xor}}
 }
 \examples{
 # make a fingerprint vector
