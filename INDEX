@@ -1,7 +1,19 @@
-fp.and                  The logical AND of two fingerprints
-fp.from.bstring         Generates a fingerprint vector from a string
-                        representation of the binary fingerprint
-fp.not                  The logical NOT of a fingerprint
-fp.or                   The logical OR of two fingerprints
-fp.to.string            Generates a string representation of a binary
-                        fingerprint
+!                       Logical Operators for Fingerprints
+as.character            Generates a String Representation of a
+                        Fingerprint
+cdk.lf                  Functions to parse lines from fingerprint files
+distance                Calculates the Similarity or Dissimilarity
+                        Between Two Fingerprints
+euc.vector              Euclidean Representation of Binary Fingerprints
+fingerprint-class       Class "fingerpint"
+fold                    Fold a fingerprint
+fp.factor.matrix        Converts a List of Fingerprints to a data.frame
+                        of Factors
+fp.read                 Functions to Read Fingerprints From Files
+fp.sim.matrix           Calculates a Similarity Matrix for a Set of
+                        Fingerprints
+fp.to.matrix            Converts a List of Fingerprints to a Matrix
+length                  Fingerprint Bit Length
+random.fingerprint      Generate Randomized Fingerprints
+show,fingerprint-method
+                        String Representation of a Fingerprint

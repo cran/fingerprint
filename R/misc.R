@@ -54,14 +54,41 @@ setMethod("distance", c("fingerprint", "fingerprint", "character"),
                               'hamann', 'yule', 'pearson', 'dispersion',
                               'mcconnaughey', 'stiles',
 
-                              'simpson', 'petke')) {
+                              'simpson', 'petke',
+                              'stanimoto', 'seuclidean'
+                              )) {
             
             if ( length(fp1) != length(fp2))
               stop("Fingerprints must of the same bit length")
             
             method <- match.arg(method)
-            size <- length(fp1)
-            n <- size
+            n <- length(fp1)
+
+            if (method == 'tanimoto') {
+              f1 <- numeric(n)
+              f2 <- numeric(n)
+              f1[fp1@bits] <- 1
+              f2[fp2@bits] <- 1
+              sim <- 0.0
+              ret <-  .C("fpdistance", as.double(f1), as.double(f2),
+                         as.integer(n), as.integer(1),
+                         as.double(sim),
+                         PACKAGE="fingerprint")
+              return (ret[[5]])
+            } else if (method == 'euclidean') {
+              f1 <- numeric(n)
+              f2 <- numeric(n)
+              f1[fp1@bits] <- 1
+              f2[fp2@bits] <- 1
+              sim <- 0.0
+              ret <-  .C("fpdistance", as.double(f1), as.double(f1),
+                         as.integer(n), as.integer(2),
+                         as.double(sim),
+                         PACKAGE="fingerprint")
+              return (ret[[5]])
+            }
+
+            size <- n
 
             ## in A & B
             tmp <- fp1 & fp2
@@ -82,9 +109,9 @@ setMethod("distance", c("fingerprint", "fingerprint", "character"),
             dist <- NULL
 
             ## Simlarity
-            if (method == 'tanimoto') {
+            if (method == 'stanimoto') {
               dist <- c / (a+b+c)
-            } else if (method == 'euclidean') {
+            } else if (method == 'seuclidean') {
               dist <- sqrt((d+c) / (a+b+c+d))
             } else if (method == 'dice') {
               dist <- c / (.5*a + .5*b + c)
