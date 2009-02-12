@@ -1,4 +1,4 @@
-\name{!,&,|}
+\name{fplogical}
 \alias{!}
 \alias{|}
 \alias{&}
