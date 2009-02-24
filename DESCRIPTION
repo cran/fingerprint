@@ -1,9 +1,9 @@
 Package: fingerprint
-Version: 3.1.1
-Date: 2009-02-12
+Version: 3.1.2
+Date: 2009-02-24
 Title: Functions to operate on binary fingerprint data
 Author: Rajarshi Guha <rajarshi.guha@gmail.com>
-Maintainer: Rajarshi Guha <rajarshi.guha@gmil.com>
+Maintainer: Rajarshi Guha <rajarshi.guha@gmail.com>
 Description: This package contains functions to manipulate binary fingerprints
  of arbitrary length. A fingerprint is represented by an object of S4 class 'fingerprint'
  which is internally represented a vector of integers, such
@@ -17,4 +17,4 @@ Description: This package contains functions to manipulate binary fingerprints
 License: GPL
 Depends: methods
 LazyLoad: yes
-Packaged: Thu Feb 12 08:47:48 2009; rguha
+Packaged: Mon Feb 23 09:19:32 2009; rguha
