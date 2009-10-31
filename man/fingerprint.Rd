@@ -48,8 +48,7 @@ Objects can be created by calls of the form \code{new("fingerprint", ...)}.
     \item{random.fingerprint}{\code{signature(nbit = "numeric", on = "numeric")}: ... }    
 	 }
 }
-\references{}
-\author{Rajarshi Guha \email{rguha@indiana.edu}}
+\author{Rajarshi Guha \email{rajarshi.guha@gmail.com}}
 \seealso{
   \code{\link{fp.read}}, \code{\link{fp.read.to.matrix}}
   \code{\link{fp.sim.matrix}}, \code{\link{fp.to.matrix}},
