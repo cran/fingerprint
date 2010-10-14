@@ -1,3 +1,4 @@
+
 setGeneric("fold", function(fp) standardGeneric("fold"))
 setMethod("fold", "fingerprint",
           function(fp) {
@@ -37,6 +38,25 @@ setMethod("euc.vector", "fingerprint",
 
 
 setGeneric("distance", function(fp1,fp2,method) standardGeneric("distance"))
+setMethod("distance", c("featvec", "featvec", "missing"),
+          function(fp1, fp2) {
+            distance(fp1, fp2, "tanimoto" )
+          })
+setMethod("distance", c("featvec", "featvec", "character"),
+          function(fp1, fp2, method=c("tanimoto", "dice", "robust")) {
+            method <- match.arg(method)
+            n1 <- length(fp1)
+            n2 <- length(fp2)
+            n12 <- length(intersect(fp1@features, fp2@features))
+            if (method == 'tanimoto') {
+              return(n12/(n1+n2-n12))
+            } else if (method == "robust") {
+              return(0.5 + 0.5 * n12 * n12 / (n1*n2))
+            } else if (method == "dice") {
+              return(2.0 * n12 / (n1+n2))
+            }
+          })
+
 setMethod("distance", c("fingerprint", "fingerprint", "missing"),
           function(fp1,fp2) {
             distance(fp1,fp2,"tanimoto")
