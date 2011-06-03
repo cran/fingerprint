@@ -1,11 +1,5 @@
 #include <R.h>
-#include <Rdefines.h>
 #include <Rinternals.h>
-#include <Rinterface.h>
-#include <R_ext/Boolean.h>
-#include <R_ext/Parse.h>
-
-#include <R_ext/Rdynload.h>
 
 /* Bulk of the code provided by Andrew Dalke, modified
    by me to be usable from R */
