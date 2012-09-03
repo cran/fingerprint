@@ -1,6 +1,6 @@
 Package: fingerprint
-Version: 3.4.7
-Date: 2012-02-26
+Version: 3.4.8.1
+Date: 2012-09-03
 Title: Functions to operate on binary fingerprint data
 Author: Rajarshi Guha <rajarshi.guha@gmail.com>
 Maintainer: Rajarshi Guha <rajarshi.guha@gmail.com>
@@ -21,6 +21,6 @@ License: GPL
 Depends: methods
 LazyLoad: yes
 Suggests: RUnit
-Packaged: 2012-02-27 02:31:38 UTC; guhar
+Packaged: 2012-09-03 11:48:28 UTC; guhar
 Repository: CRAN
-Date/Publication: 2012-02-27 06:48:55
+Date/Publication: 2012-09-03 12:33:49

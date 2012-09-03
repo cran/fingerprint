@@ -1,8 +1,13 @@
-\name{distance}
+\name{distance-methods}
+\docType{methods}
 \alias{distance}
-\title{
-Calculates the Similarity or Dissimilarity Between Two Fingerprints
-}
+\alias{distance-methods}
+\alias{distance,featvec,featvec,character,missing,missing-method}
+\alias{distance,featvec,featvec,missing,missing,missing-method}
+\alias{distance,fingerprint,fingerprint,character,missing,missing-method}
+\alias{distance,fingerprint,fingerprint,character,numeric,numeric-method}
+\alias{distance,fingerprint,fingerprint,missing,missing,missing-method}
+\title{Calculates the Similarity or Dissimilarity Between Two Fingerprints}
 \description{
   A number of distance metrics can be calculated for binary
   fingerprints. Some of these are actually similarity metrics and
@@ -48,11 +53,38 @@ Calculates the Similarity or Dissimilarity Between Two Fingerprints
     \item Stiles
     \item Simpson
     \item Petke
+    \item Tversky
   }
   The default metric is the Tanimoto coefficient.
 }
+
+\section{Methods}{
+\describe{
+
+\item{\code{signature(fp1 = "featvec", fp2 = "featvec", method = "character", a = "missing", b = "missing")}}{
+ Similarity method for feature vector type fingerprints, supporting \code{tanimoto}, \code{robust} and \code{dice}
+ metrics.
+}
+
+\item{\code{signature(fp1 = "featvec", fp2 = "featvec", method = "missing", a = "missing", b = "missing")}}{
+ Evaluate Tanimoto similarity between two feature vector fingerprints			  
+}
+
+\item{\code{signature(fp1 = "fingerprint", fp2 = "fingerprint", method = "character", a = "missing", b = "missing")}}{
+ Evaluate similarity (or dissimilrity) between two binary fingerprints. See below for a list of possible
+ similarity (or dissimilarity) metrics			  
+}
+
+\item{\code{signature(fp1 = "fingerprint", fp2 = "fingerprint", method = "character", a = "numeric", b = "numeric")}}{
+ Evaluate Tversky similarity between two binary fingerprints.
+}
+
+\item{\code{signature(fp1 = "fingerprint", fp2 = "fingerprint", method = "missing", a = "missing", b = "missing")}}{
+ Evaluate Tanimoto similarity between two binary fingerprints
+}
+}}
 \usage{
-distance(fp1, fp2, method)
+distance(fp1, fp2, method, a, b)
 }
 \arguments{
   \item{fp1}{
@@ -61,6 +93,8 @@ distance(fp1, fp2, method)
   \item{fp2}{
     An object of class \code{fingerprint} or \code{featvec}
   }
+  \item{a}{Parameter for the Tversky index}
+  \item{b}{Parameter for the Tversky index}
   \item{method}{
     The type of distance metric desired. Partial matching is
     supported and the deault is \code{tanimoto}. Alternative values are
@@ -95,6 +129,7 @@ distance(fp1, fp2, method)
 
       \item \code{simpson}
       \item \code{petke}
+      \item \code{tversky}
     }
     If the two fingerprints are of class \code{featvec} then the following methods 
     may be specified: \code{tanimoto}, \code{robust} and \code{dice}.
@@ -127,6 +162,5 @@ distance(fp1,fp3) # should be 0
   Monve, V.; Introduction to Similarity Searching in
   Chemistry, \emph{MATCH - Comm. Math. Comp. Chem.}, 2004, \emph{51}, 7-38
 }
-
 \keyword{logic}
 \author{Rajarshi Guha \email{rajarshi.guha@gmail.com}}
