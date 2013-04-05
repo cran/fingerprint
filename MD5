@@ -1,5 +1,5 @@
-305ea3df77da7739c350220beef74427 *ChangeLog
-4f13957d22e6949c337410d147145286 *DESCRIPTION
+d851f557da2eddafa44c1ae0844a6ffa *ChangeLog
+873710cc9c1ca994332d6a6986f4639a *DESCRIPTION
 273a1345a5199deee0497cc556812bde *INDEX
 24d0cd772ef9ddf09a9115e68678df51 *NAMESPACE
 f28cc7591c8d64e99d90d9f91383a1c6 *R/balance.R
@@ -14,7 +14,7 @@ d847e08ed4a27bd55d0783c9fc9630fd *R/misc.R
 6c8ad22a6216d187660d0e3480af7397 *R/zzz.R
 334f0de6ed55dc79f59addf091097353 *inst/unitTests/Makefile
 f22df9f3397f61d3e9679ad049e14c83 *inst/unitTests/bits.fps
-74fdab0cab59cd5fb9282f8b6c7e29e7 *inst/unitTests/runit.fp.R
+0f9f518f3f1ad4c34b71d4c6cfde6fcf *inst/unitTests/runit.fp.R
 0efea50e6b9d5435b4b9704d4391cacd *man/balance.Rd
 d76542452b5b085238f6708e4c24593c *man/bitimp.Rd
 d839bab10da6f334946a447b19f4b559 *man/bitspec.Rd
