@@ -171,3 +171,70 @@ test.fps.reader <- function() {
     checkEquals(expected, observed, msg = sprintf("%s had a mismatch in bit positions", fps[[i]]@name))
   }
 }
+
+#######################################
+##
+## Feature vector tests
+##
+#######################################
+test.feature <- function() {
+  f1 <- new('feature', feature='F1')
+  checkEquals(1, f1@count)
+
+  f2 <- new('feature', feature='F2', count=as.integer(12))
+  checkEquals(12, f2@count)
+}
+
+test.feature.c <- function() {
+  f1 <- new('feature', feature='F1', count=as.integer(2))
+  f2 <- new('feature', feature='F2', count=as.integer(3))
+  fl <- c(f1, f2)
+  checkEquals(2, length(fl))
+  checkEquals("list", class(fl))
+  checkTrue(identical(f1, fl[[1]]))
+  checkTrue(identical(f2, fl[[2]]))  
+}
+
+test.feature.fp <- function() {
+  feats <- sapply(letters[1:10], function(x) new('feature', feature=x, count=as.integer(1)))
+  fv <- new('featvec', features=feats)
+  checkEquals(10, length(fv))
+}
+
+test.feature.dist1 <- function() {
+  f1 <- sapply(letters[1:10], function(x) new('feature', feature=x, count=as.integer(1)))
+  f2 <- sapply(letters[1:10], function(x) new('feature', feature=x, count=as.integer(1)))
+  fv1 <- new('featvec', features=f1)
+  fv2 <- new('featvec', features=f2)
+  d <- distance(fv1, fv2, method='tanimoto')
+  checkEquals(1, d)
+}
+test.feature.dist2 <- function() {
+  f1 <- sapply(letters[1:10], function(x) new('feature', feature=x, count=as.integer(1)))
+  f2 <- sapply(letters[11:20], function(x) new('feature', feature=x, count=as.integer(1)))
+  fv1 <- new('featvec', features=f1)
+  fv2 <- new('featvec', features=f2)
+  d <- distance(fv1, fv2, method='tanimoto')
+  checkEquals(0, d)
+}
+
+test.featvec.read <- function() {
+  data.file <- file.path(system.file("unitTests", "test.ecfp", package="fingerprint"))
+  fps <- fp.read(data.file, lf=ecfp.lf, binary=FALSE)
+  checkEquals(10, length(fps))
+
+  lengths <- c(58L, 38L, 43L, 66L, 62L, 66L, 65L, 44L, 66L, 61L)
+  ol <- sapply(fps, length)
+  checkTrue(identical(lengths, ol))
+}
+
+tester.getters.setters <- function() {
+  f <- new("feature", feature='ABCD', count=as.integer(1))
+  checkEquals("ABCD", feature(f))
+  checkEquals(1, count(f))
+
+  feature(f) <- 'UXYZ'
+  count(f) <- 10
+  checkEquals("UXYZ", feature(f))
+  checkEquals(10, count(f))
+}

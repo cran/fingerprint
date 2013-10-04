@@ -28,6 +28,8 @@ the logical and (&) would correspond to the union of the two feature vectors.
     \item{\code{name}:}{Object of class \code{"character"} ~~
       The name associated with the fingerprint. If not name is available
     this gets set to an empty string}
+    \item{\code{misc}:}{A list to hold arbitrary items associated with a fingerprint (such as 
+     extra fields from a fingerprint file)}
   }
 }
 \section{Methods}{
@@ -44,8 +46,9 @@ the logical and (&) would correspond to the union of the two feature vectors.
   \code{\link{fp.read}}, \code{\link{fp.read.to.matrix}}
   \code{\link{fp.sim.matrix}}, \code{\link{fp.to.matrix}},
   \code{\link{fp.factor.matrix}}
-  \code{\link{random.fingerprint}}, \code{\link{featvec.to.binaryfp}}
+  \code{\link{random.fingerprint}}
 }
+
  
 \keyword{classes}
 \keyword{logic}
