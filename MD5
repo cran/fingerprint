@@ -1,5 +1,5 @@
-60b44c2118bb1e56a85c7e9bc08ebb6b *ChangeLog
-e8c5a8749dcac1e330a22b3858c77b45 *DESCRIPTION
+54c84d92ca923a883e1f67436bbad235 *ChangeLog
+7927ce8c2a2444f7be60f0792562e560 *DESCRIPTION
 273a1345a5199deee0497cc556812bde *INDEX
 806dd94bbc77776c5a9c15d2248228fe *NAMESPACE
 f28cc7591c8d64e99d90d9f91383a1c6 *R/balance.R
@@ -8,7 +8,7 @@ f28cc7591c8d64e99d90d9f91383a1c6 *R/balance.R
 0ef81010ff2568f5d974f6daf54e517c *R/feature.R
 c4e0d4b459b8de6a1a982b6cc873d964 *R/featurefp.R
 b1ea2b3bb57e131aa33a2b58ebc8c85a *R/fingerprint.R
-8afb25cbfc5e876f91a7165091506841 *R/matrix.R
+8c950243eb97ed245fd92ac3436f076b *R/matrix.R
 b635834ec05b7b42fb0634b8045201d2 *R/misc.R
 8972e18553803e569bf2eb11d586f7af *R/ops.R
 64fa3fde01189ac33b8ba55b7483a567 *R/read.R
@@ -43,6 +43,6 @@ a0e79a3d465933089eed74a7f56ac5c4 *man/shannon.Rd
 a0c7e4abd4c8f6c862240cc08764cd50 *man/sim.Rd
 531d7aae2eb984e674968da4b856a60e *man/string.Rd
 ca09bc634ca0b37f30dda125555410f6 *man/vec.Rd
-17be5eb6939ed887cc48225824d8532c *src/fpdistance.c
+f262cf7140f8dbaaf0342ef2832bf173 *src/fpdistance.c
 3c7a939828404a253b652bf1191c9f60 *src/readfps.c
 4c2ef966480892f12e79a4c6729efa23 *tests/doRUnit.R
