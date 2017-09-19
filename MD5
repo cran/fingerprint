@@ -1,16 +1,17 @@
 aa63c800ee74199d6ec4219e2803a9da *ChangeLog
-3181e0688348d283f70d0be57488497c *DESCRIPTION
-ea2cc720367dcf514a936450bbab92bc *NAMESPACE
+ff722c4e6fc838cb91a22ee5e33c1337 *DESCRIPTION
+273a1345a5199deee0497cc556812bde *INDEX
+836321b1e72589b01e942d88414a1401 *NAMESPACE
 f28cc7591c8d64e99d90d9f91383a1c6 *R/balance.R
 2c642bc1f05561df93d2c76a9fae1748 *R/bitimp.R
 0c94477e5334b69df55f95f0e5b86afc *R/bitspec.R
 702410c34c11fa12b05cda292e710a5b *R/feature.R
 c4e0d4b459b8de6a1a982b6cc873d964 *R/featurefp.R
 b1ea2b3bb57e131aa33a2b58ebc8c85a *R/fingerprint.R
-174fbff0c98e0b53538521daaecf91a0 *R/matrix.R
+654f051f7cffd07f87bab08eef19dd14 *R/matrix.R
 2ff890be163c9de10671cc8f11e0b868 *R/misc.R
 8972e18553803e569bf2eb11d586f7af *R/ops.R
-64fa3fde01189ac33b8ba55b7483a567 *R/read.R
+b57f70112f24a45b0b58464b880003c4 *R/read.R
 fe6078d069c08a91d845aaf6fafc073f *R/zzz.R
 334f0de6ed55dc79f59addf091097353 *inst/unitTests/Makefile
 f22df9f3397f61d3e9679ad049e14c83 *inst/unitTests/bits.fps
@@ -44,4 +45,5 @@ a0c7e4abd4c8f6c862240cc08764cd50 *man/sim.Rd
 ca09bc634ca0b37f30dda125555410f6 *man/vec.Rd
 7afe32c102f466fbc046191637bc6229 *src/fpdistance.c
 3c7a939828404a253b652bf1191c9f60 *src/readfps.c
+f0b1c7e2062664dbefc7d59abc6a91c4 *src/registerDynamicSymbol.c
 4c2ef966480892f12e79a4c6729efa23 *tests/doRUnit.R
